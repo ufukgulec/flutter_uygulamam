@@ -9,6 +9,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   String baslik = "Flutter'da ilk uygulamam";
+  String mesaj = "";
   int not = 20;
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,6 @@ class MyApp extends StatelessWidget {
         child: ElevatedButton(
           child: const Text("Sonucu gör"),
           onPressed: () {
-            String mesaj = "";
             if (not >= 50) {
               mesaj = "Dersten geçti";
             } else if (not >= 40) {
@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
             } else {
               mesaj = "Dersten kaldı";
             }
-            var alert = const AlertDialog(
+            var alert = AlertDialog(
               title: Text("Sınav sonucu"),
-              content: Text(),
+              content: Text(mesaj),
             );
             showDialog(
                 context: context, builder: (BuildContext context) => alert);
